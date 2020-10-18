@@ -35,7 +35,7 @@ class MyAwesomeExtension extends Autodesk.Viewing.Extension {
         this._button.onClick = (ev) => {
             // Execute an action here
         };
-        this._button.setToolTip('My Awesome Extension');
+        this._button.setToolTip('CLASH COMMENTS');
         this._button.addClass('myAwesomeExtensionIcon');
         this._group.addControl(this._button);
     }

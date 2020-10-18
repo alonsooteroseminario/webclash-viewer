@@ -39,6 +39,10 @@
   <link href="css/main.css" rel="stylesheet" />
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
+  <script src="/js/myawesomeextension.js"></script>
+  <script src="/js/handleselectionextension.js"></script>
+
+
 </head>
 
 <body>
@@ -47,21 +51,18 @@
     <div class="container-fluid">
       <ul class="nav navbar-nav left">
         <li>
-          <a target="_blank">
+          <a href="index.html">
             <img class="webaclash-logo-image" src="images/webclash-original.png" width="120px" height="25px">
-            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
           </a>
         </li>
         <li>
-          <a href="http://developer.autodesk.com" target="_blank">
+          <a href="upload.html" >
             <img class="icons8-upload-48-image" src="images/icons8-upload-48.png" width="50%" height="50%">
-            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
           </a>       
         </li>
         <li>
-          <a href="http://developer.autodesk.com" target="_blank">
+          <a href="upload.html" >
             <img class="icons8-upload-48-image" src="images/icons8-upload-mail-64.png" width="50%" height="50%">
-            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
           </a>       
         </li>
       </ul>
@@ -92,7 +93,6 @@
       
     </div>
   </div>
-
   <form id="uploadFile" method='post' enctype="multipart/form-data">
     <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
   </form>
@@ -119,8 +119,6 @@
     </div>
   </div>
 
-  
-  <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
-  
 </body>
+
 </html> 

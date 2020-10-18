@@ -1,0 +1,184 @@
+!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Webclash Viewer</title>
+  <meta charset="utf-8" />
+
+      <!-- Page styles -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <style>
+        #view-source {
+          position: fixed;
+          display: block;
+          right: 0;
+          bottom: 0;
+          margin-right: 40px;
+          margin-bottom: 40px;
+          z-index: 900;
+        }
+      </style>
+  
+  <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
+  <!-- Common packages: jQuery, Bootstrap, jsTree -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/jstree.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/themes/default/style.min.css" />
+  <!-- Autodesk Forge Viewer files -->
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+  <!-- this project files -->
+  <link href="css/main.css" rel="stylesheet" />
+  <script src="js/ForgeTree.js"></script>
+  <script src="js/ForgeViewer.js"></script>
+  <script src="/js/myawesomeextension.js"></script>
+  <script src="/js/handleselectionextension.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav left">
+        <li>
+            <a href="index.html">
+            <img class="webaclash-logo-image" src="images/webclash-original.png" width="120px" height="25px">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
+          </a>
+        </li>
+        <li>
+          <a href="upload.html" target="_blank">
+            <img class="icons8-upload-48-image" src="images/icons8-upload-48.png" width="50%" height="50%">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
+          </a>       
+        </li>
+        <li>
+          <a href="upload.html" target="_blank">
+            <img class="icons8-upload-48-image" src="images/icons8-upload-mail-64.png" width="50%" height="50%">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
+          </a>       
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="body-container-wrapper">
+    <div class="body-container">
+      <div class="page-center">
+        
+       
+  
+        
+        <i class="fa fa-cloud" aria-hidden="true"></i>
+        <h1>Upload Your <strong>Files</strong> To Qbus Server</h1>
+        <a class="upload" id="call-to-action"><span>Select Your Upload</span></a>
+        <form id="upload" method="post" action="upload.php" enctype="multipart/form-data">
+          <div id="drop">
+        <input type="file" name="upl" multiple  multiple class="upload-hidden">
+            </div>
+          </form>
+        <div class="file-upload-bar">
+          <div class="bar-wrapper">
+            <div class="overall"><span>Overall Progress</span>
+              <div class="progress-bar-overall">
+                <span><b>20%</b></span>
+              </div>
+            </div>
+            <div class="individual-files">
+              <ul>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+                <li>
+                  <span class="filename"><i>File Name:</i><b>xyz.jpg</b></span>
+                  <span class="filesize"><i>File Size:</i><b>Mb</b></span>
+                  <span class="file-link"><i>File Link</i><b><input value="http://www.qbus.com/txt.jpg"></b></span>
+                  <span class="copy-link"><b>Copy Link</b></span>
+                </li>
+              </ul>
+              </div>
+          </div>
+        </div>
+        <div class="file-upload-bar-closed"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html> 
