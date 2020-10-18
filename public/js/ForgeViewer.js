@@ -1,3 +1,7 @@
+const { AuthClientThreeLegged } = require("forge-apis");
+// import * as THREE from 'three';
+// const scene = new THREE.Scene();
+
 var viewer;
 
 function launchViewer(urn) {
@@ -11,6 +15,9 @@ function launchViewer(urn) {
     viewer.start();
     var documentId = 'urn:' + urn;
     Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+    
+    // var red = new THREE.Vector4(1, 0, 0, 0.5);
+    // viewer.setThemingColor(3,red);
   });
 }
 

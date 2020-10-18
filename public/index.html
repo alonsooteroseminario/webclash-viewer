@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>View Models - Autodesk Forge</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Webclash Viewer</title>
   <meta charset="utf-8" />
+
+      <!-- Page styles -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <style>
+        #view-source {
+          position: fixed;
+          display: block;
+          right: 0;
+          bottom: 0;
+          margin-right: 40px;
+          margin-bottom: 40px;
+          z-index: 900;
+        }
+      </style>
+  
   <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,29 +40,44 @@
   <script src="js/ForgeTree.js"></script>
   <script src="js/ForgeViewer.js"></script>
 </head>
+
 <body>
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <ul class="nav navbar-nav left">
         <li>
-          <a href="http://developer.autodesk.com" target="_blank">
-            <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20">
+          <a target="_blank">
+            <img class="webaclash-logo-image" src="images/webclash-original.png" width="120px" height="25px">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
           </a>
+        </li>
+        <li>
+          <a href="http://developer.autodesk.com" target="_blank">
+            <img class="icons8-upload-48-image" src="images/icons8-upload-48.png" width="50%" height="50%">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
+          </a>       
+        </li>
+        <li>
+          <a href="http://developer.autodesk.com" target="_blank">
+            <img class="icons8-upload-48-image" src="images/icons8-upload-mail-64.png" width="50%" height="50%">
+            <!-- <img alt="Autodesk Forge" src="//developer.static.autodesk.com/images/logo_forge-2-line.png" height="20"> -->
+          </a>       
         </li>
       </ul>
     </div>
   </nav>
+
   <!-- End of navbar -->
   <div class="container-fluid fill">
     <div class="row fill">
       <div class="col-sm-4 fill">
         <div class="panel panel-default fill">
           <div class="panel-heading" data-toggle="tooltip">
-            Buckets &amp; Objects
+            Coordination Objects
             <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
             <button class="btn btn-xs btn-info" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
-              <span class="glyphicon glyphicon-folder-close"></span> New bucket
+              <span class="glyphicon glyphicon-folder-close"></span> New Project
             </button>
           </div>
           <div id="appBuckets">
@@ -51,8 +88,11 @@
       <div class="col-sm-8 fill">
         <div id="forgeViewer"></div>
       </div>
+      
+      
     </div>
   </div>
+
   <form id="uploadFile" method='post' enctype="multipart/form-data">
     <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
   </form>
@@ -78,5 +118,9 @@
       </div>
     </div>
   </div>
+
+  
+  <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
+  
 </body>
-</html>
+</html> 
