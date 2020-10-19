@@ -533,5 +533,6 @@ Autodesk.ADN.Viewing.Extension.TransformTool.prototype.constructor =
     Autodesk.ADN.Viewing.Extension.TransformTool;
 
 Autodesk.Viewing.theExtensionManager.registerExtension(
-    'TransformationExtension',
+    'Autodesk.ADN.Viewing.Extension.TransformTool',
     Autodesk.ADN.Viewing.Extension.TransformTool);
+
