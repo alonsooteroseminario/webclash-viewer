@@ -33,10 +33,11 @@ function onDocumentLoadSuccess(doc) {
     viewer.loadExtension("NestedViewerExtension",  { filter: ["2d", "3d"], crossSelection: true })
     viewer.loadExtension("Autodesk.ADN.Viewing.Extension.TransformTool")
     viewer.loadExtension("Autodesk.Edit2D")
-
+    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.ScreenShotManager',{createControls: true});
   });
   
 }
+
 
 function onDocumentLoadFailure(viewerErrorCode) {
   console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
@@ -75,3 +76,4 @@ function sheetToWorld(sheetPos, model2d, model3d) {
   const worldPos = sheetPos.clone().applyMatrix4(matrix).sub(globalOffset);
   return worldPos;
 }
+

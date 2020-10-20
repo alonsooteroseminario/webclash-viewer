@@ -1,0 +1,18 @@
+{
+    "name": "ScreenShotManager",
+    "displayname": "ScreenShotManager",
+    "description": "",
+    "options": {
+        "filter": ["2d", "3d"],
+        "crossSelection": true
+    },
+    "editoptions":"true",
+    "viewerversion": "7.*",
+    "loadonstartup": "false",
+    "filestoload": {
+        "cssfiles": ["main.css"],
+        "jsfiles": ["main.js"]
+    },
+    "includeinlist": "true",
+    "bloglink": "https://gist.github.com/leefsmp/6cb958bb40ec27715ee4"
+}

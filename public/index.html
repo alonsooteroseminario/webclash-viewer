@@ -57,6 +57,22 @@
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/DrawToolExtension/contents/main.css">
 <script src="https://github.com/petrbroz/ForgeViewerExtensions/blob/master/assets/js/extensions/TransformTool.js"></script>
 
+<script>
+    var $container = $(viewer.container);
+
+    Autodesk.Viewing.Viewer3D.prototype.getScreenShot = function(w, h, cb) {
+    }
+
+    viewer.getScreenShot(
+        $container.width(),
+        $container.height(),
+        function(newBlobURL){
+
+            // use blobUrl ...
+            
+        });
+
+</script>
 
 
 
