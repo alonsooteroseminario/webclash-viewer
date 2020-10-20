@@ -24,7 +24,28 @@ function launchViewer(urn) {
   });
 
 
+
+
 }
+
+
+var $container = $(viewer.container);
+
+Autodesk.Viewing.Viewer3D.prototype.getScreenShot = function(w, h, cb) {
+}
+
+
+
+viewer.getScreenShot(
+    $container.width(),
+    $container.height(),
+    function(newBlobURL){
+        // use blobUrl ...
+        screenshot.src = newBlobURL;
+    });
+
+
+
 
 function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
