@@ -34,8 +34,20 @@ class MyAwesomeExtension extends Autodesk.Viewing.Extension {
         this._button = new Autodesk.Viewing.UI.Button('myAwesomeExtensionButton');
         this._button.onClick = (ev) => {
             // Execute an action here
+            const sendViaWhatsapp = () => {
+                const a = document.querySelectorAll(".shareWhatsapp");
+                    a.forEach(el => {
+                        const text = el.getAttribute('data-message'),
+                                url= el.getAttribute('data-url'),
+                                 link = (el.hasAttribute('data-url') ? url : window.location.href);
+                              el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
+                    })
+                }
+                
+                
+                sendViaWhatsapp();
         };
-        this._button.setToolTip('CLASH COMMENTS');
+        this._button.setToolTip('Send WhatsApp');
         this._button.addClass('myAwesomeExtensionIcon');
         this._group.addControl(this._button);
     }

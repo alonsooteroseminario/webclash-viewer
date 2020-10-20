@@ -1,4 +1,5 @@
 class HandleSelectionExtension extends Autodesk.Viewing.Extension {
+    
     constructor(viewer, options) {
         super(viewer, options);
         this._group = null;

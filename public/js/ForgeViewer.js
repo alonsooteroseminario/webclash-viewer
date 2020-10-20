@@ -8,7 +8,8 @@ function launchViewer(urn) {
   
   var options = {
     env: 'AutodeskProduction',
-    getAccessToken: getForgeToken
+    getAccessToken: getForgeToken,
+    document: 'http://autodesk-forge.github.io/viewer-javascript-offline.sample/shaver/0.svf'
   };
 
   Autodesk.Viewing.Initializer(options, () => {
@@ -16,6 +17,9 @@ function launchViewer(urn) {
     viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D' ] });
 
     viewer.start();
+    viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
+      viewer.utilities.fitToView();
+    });
 
     var documentId = 'urn:' + urn;
 
@@ -28,13 +32,10 @@ function launchViewer(urn) {
 
 }
 
-
 var $container = $(viewer.container);
 
 Autodesk.Viewing.Viewer3D.prototype.getScreenShot = function(w, h, cb) {
 }
-
-
 
 viewer.getScreenShot(
     $container.width(),
@@ -45,8 +46,6 @@ viewer.getScreenShot(
     });
 
 
-
-
 function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
@@ -54,11 +53,13 @@ function onDocumentLoadSuccess(doc) {
     viewer.loadExtension("NestedViewerExtension",  { filter: ["2d", "3d"], crossSelection: true })
     viewer.loadExtension("Autodesk.ADN.Viewing.Extension.TransformTool")
     viewer.loadExtension("Autodesk.Edit2D")
-    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.ScreenShotManager',{createControls: true});
+    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.ScreenShotManager',{createControls: true})
+    viewer.loadExtension('CameraRotation')
+    viewer.loadExtension('MyAwesomeExtension')
+    viewer.loadExtension('wp')
   });
   
 }
-
 
 function onDocumentLoadFailure(viewerErrorCode) {
   console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
@@ -98,3 +99,15 @@ function sheetToWorld(sheetPos, model2d, model3d) {
   return worldPos;
 }
 
+const sendViaWhatsapp = () => {
+	const a = document.querySelectorAll(".shareWhatsapp");
+		a.forEach(el => {
+			const text = el.getAttribute('data-message'),
+					url= el.getAttribute('data-url'),
+					 link = (el.hasAttribute('data-url') ? url : window.location.href);
+				  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
+		})
+	}
+	
+	
+sendViaWhatsapp();
