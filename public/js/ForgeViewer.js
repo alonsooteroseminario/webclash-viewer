@@ -14,7 +14,7 @@ function launchViewer(urn) {
 
   Autodesk.Viewing.Initializer(options, () => {
 
-    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D' ] });
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'Autodesk.ADN.Viewing.Extension.ScreenShotManager', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
 
     viewer.start();
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
