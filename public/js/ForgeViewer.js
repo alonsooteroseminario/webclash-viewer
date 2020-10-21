@@ -14,7 +14,7 @@ function launchViewer(urn) {
 
   Autodesk.Viewing.Initializer(options, () => {
 
-    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'Autodesk.ADN.Viewing.Extension.ScreenShotManager', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
 
     viewer.start();
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
@@ -61,6 +61,8 @@ function onDocumentLoadSuccess(doc) {
   
 }
 
+
+
 function onDocumentLoadFailure(viewerErrorCode) {
   console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
 }
@@ -99,15 +101,18 @@ function sheetToWorld(sheetPos, model2d, model3d) {
   return worldPos;
 }
 
-const sendViaWhatsapp = () => {
-	const a = document.querySelectorAll(".shareWhatsapp");
-		a.forEach(el => {
-			const text = el.getAttribute('data-message'),
-					url= el.getAttribute('data-url'),
-					 link = (el.hasAttribute('data-url') ? url : window.location.href);
-				  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
-		})
-	}
+// const sendViaWhatsapp = () => {
+// 	const a = document.querySelectorAll(".shareWhatsapp");
+// 		a.forEach(el => {
+// 			const text = el.getAttribute('data-message'),
+// 					url= el.getAttribute('data-url'),
+// 					 link = (el.hasAttribute('data-url') ? url : window.location.href);
+// 				  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
+// 		})
+// 	}
 	
 	
-sendViaWhatsapp();
+// sendViaWhatsapp();
+
+
+

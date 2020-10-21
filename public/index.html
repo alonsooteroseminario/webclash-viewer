@@ -71,6 +71,124 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script src='https://code.responsivevoice.org/responsivevoice.js'></script> -->
 
+  
+<script>
+  // Cat box by //https://codepen.io/shivapandey/pen/dWdRYM
+
+    $(function() {
+      var INDEX = 0; 
+      $("#chat-submit").click(function(e) {
+        e.preventDefault();
+        var msg = $("#chat-input").val(); 
+        if(msg.trim() == ''){
+          return false;
+        }
+        generate_message(msg, 'self');
+        var buttons = [
+            {
+              name: 'Existing User',
+              value: 'existing'
+            },
+            {
+              name: 'New User',
+              value: 'new'
+            }
+          ];
+        setTimeout(function() {      
+          generate_message(msg, 'user');  
+        }, 1000)
+      })
+
+      function generate_message(msg, type) {
+        INDEX++;
+        var str="";
+        str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\">";
+        str += "          <span class=\"msg-avatar\">";
+        str += "            <img src=\"https:\/\/image.crisp.im\/avatar\/operator\/196af8cc-f6ad-4ef7-afd1-c45d5231387c\/240\/?1483361727745\">";
+        str += "          <\/span>";
+        str += "          <div class=\"cm-msg-text\">";
+        str += msg;
+        str += "          <\/div>";
+        str += "        <\/div>";
+        $(".chat-logs").append(str);
+        $("#cm-msg-"+INDEX).hide().fadeIn(300);
+        if(type == 'self'){
+        $("#chat-input").val(''); 
+        }    
+        $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);    
+      }  
+      
+      function generate_button_message(msg, buttons){    
+        /* Buttons should be object array 
+          [
+            {
+              name: 'Existing User',
+              value: 'existing'
+            },
+            {
+              name: 'New User',
+              value: 'new'
+            }
+          ]
+        */
+        INDEX++;
+        var btn_obj = buttons.map(function(button) {
+          return  "              <li class=\"button\"><a href=\"javascript:;\" class=\"btn btn-primary chat-btn\" chat-value=\""+button.value+"\">"+button.name+"<\/a><\/li>";
+        }).join('');
+        var str="";
+        str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg user\">";
+        str += "          <span class=\"msg-avatar\">";
+        str += "            <img src=\"https:\/\/image.crisp.im\/avatar\/operator\/196af8cc-f6ad-4ef7-afd1-c45d5231387c\/240\/?1483361727745\">";
+        str += "          <\/span>";
+        str += "          <div class=\"cm-msg-text\">";
+        str += msg;
+        str += "          <\/div>";
+        str += "          <div class=\"cm-msg-button\">";
+        str += "            <ul>";   
+        str += btn_obj;
+        str += "            <\/ul>";
+        str += "          <\/div>";
+        str += "        <\/div>";
+        $(".chat-logs").append(str);
+        $("#cm-msg-"+INDEX).hide().fadeIn(300);   
+        $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[0].scrollHeight}, 1000);
+        $("#chat-input").attr("disabled", true);
+      }
+      
+      $(document).delegate(".chat-btn", "click", function() {
+        var value = $(this).attr("chat-value");
+        var name = $(this).html();
+        $("#chat-input").attr("disabled", false);
+        generate_message(name, 'self');
+      })
+      
+      $("#chat-circle").click(function() {    
+        $("#chat-circle").toggle('scale');
+        $(".chat-box").toggle('scale');
+        const sendViaWhatsapp = () => {
+				const a = document.querySelectorAll(".chat-box");
+					a.forEach(el => {
+						const text = el.getAttribute('chat-input'),
+								url= el.getAttribute('data-url'),
+								 link = (el.hasAttribute('data-url') ? url : window.location.href);
+							  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
+					})
+				}
+				
+				
+				sendViaWhatsapp();
+      })
+      
+      $(".chat-box-toggle").click(function() {
+        $("#chat-circle").toggle('scale');
+        $(".chat-box").toggle('scale');
+      })
+      
+    })
+
+</script>
+
+
 </head>
 
 <body>
@@ -119,18 +237,59 @@
       </div>
 
       <div class="col-sm-8 fill">
-        <!-- <canvas id="snapshot" style="position:absolute;"></canvas>
-        <button onclick="snaphot();" style="position:absolute;">Snapshot!</button> -->
         <div id="forgeViewer"></div>
       </div>
 
-      <div>
+      <!-- <div>
         <a class="shareWhatsapp" target="_blank" data-message="
         Hey, I created a share button using WhatsApp, check it out" data-url="https://codepen.io/raygan/pen/rdjKaX">
-        <i class="fa fa-whatsapp" aria-hidden="true"></i> Enviar WhatsApp
+        <i class="fa fa-whatsapp" aria-hidden="true"></i> Send WhatsApp
       </a>
-      </div>
-       
+      </div> -->
+
+      <div id="body"> 
+  
+        <div id="chat-circle" class="btn btn-raised">
+                <div id="chat-overlay"></div>
+                <i class="material-icons">speaker_phone</i>
+          </div>
+          
+          <div class="chat-box">
+
+            <div class="chat-box-header">
+              Send WhatsApp to:
+              <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+            </div>
+
+            <div class="chat-box-body">
+
+              <div class="chat-box-overlay">   
+              </div>
+
+              <div class="chat-logs">
+              </div><!--chat-log -->
+
+            </div>
+
+            <div class="chat-input">    
+
+              <form>
+
+              <input type="text" id="chat-input" placeholder="Send a message..."/>
+              <button type="submit" class="chat-submit" id="chat-submit">
+                <i href="https://api.whatsapp.com/send?text=${msg}: ${link}" class="material-icons">send</i>
+              </button>
+
+              </form>   
+
+            </div>
+
+          </div>
+          
+          
+          
+          
+        </div>
       
 
 
