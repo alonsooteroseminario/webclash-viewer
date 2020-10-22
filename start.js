@@ -16,6 +16,6 @@ app.use('/api/forge/oss', require('./routes/oss'));
 app.use('/api/forge/modelderivative', require('./routes/modelderivative'));
 app.use((err, req, res, next) => {
     console.error(err);
-    res.status(err.statusCode).json(err);|
+    res.status(err.statusCode).json(err);
 });
 app.listen(PORT, () => { console.log(`Server listening on port ${PORT}`); });

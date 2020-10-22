@@ -65,6 +65,7 @@ function onDocumentLoadSuccess(doc) {
 
 function onDocumentLoadFailure(viewerErrorCode) {
   console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
+
 }
 
 function getForgeToken(callback) {
@@ -101,18 +102,7 @@ function sheetToWorld(sheetPos, model2d, model3d) {
   return worldPos;
 }
 
-// const sendViaWhatsapp = () => {
-// 	const a = document.querySelectorAll(".shareWhatsapp");
-// 		a.forEach(el => {
-// 			const text = el.getAttribute('data-message'),
-// 					url= el.getAttribute('data-url'),
-// 					 link = (el.hasAttribute('data-url') ? url : window.location.href);
-// 				  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
-// 		})
-// 	}
-	
-	
-// sendViaWhatsapp();
+
 
 
 

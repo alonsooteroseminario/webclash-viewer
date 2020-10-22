@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+  <meta name="description" content="Coordinate your job">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Webclash Viewer</title>
   <meta charset="utf-8" />
@@ -28,7 +28,7 @@
         }
       </style>
   
-  <link rel="shortcut icon" href="https://github.com/Autodesk-Forge/learn.forge.viewmodels/raw/master/img/favicon.ico">
+  <link rel="shortcut icon" href="/public/images/webclash-original_icon.png">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -70,7 +70,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script src='https://code.responsivevoice.org/responsivevoice.js'></script> -->
-
+    <script src="/wp-sendMessage.js"></script>
   
 <script>
   // Cat box by //https://codepen.io/shivapandey/pen/dWdRYM
@@ -95,9 +95,31 @@
             }
           ];
         setTimeout(function() {      
-          generate_message(msg, 'user');  
+          // generate_message(msg, 'user');  
         }, 1000)
+        send_wp();
       })
+
+      function send_wp() {
+        const { text } = require('express');
+
+        // const authToken = config.credentials.twilio_token;
+        require('dotenv').config();
+        // var taskInput=document.getElementById("chat-input").nodeValue.toLocaleLowerCase();
+
+
+        const accountSid = process.env.ACCOUNT_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+
+        client.messages.create({
+          from: 'whatsapp:+14155238886',
+          //id=chat-input
+        body: $("#chat-input").value,
+          //
+        to: 'whatsapp:+56956942823'
+        }).then(message => console.log(message.sid));
+      }
 
       function generate_message(msg, type) {
         INDEX++;
@@ -165,24 +187,14 @@
       $("#chat-circle").click(function() {    
         $("#chat-circle").toggle('scale');
         $(".chat-box").toggle('scale');
-        const sendViaWhatsapp = () => {
-				const a = document.querySelectorAll(".chat-box");
-					a.forEach(el => {
-						const text = el.getAttribute('chat-input'),
-								url= el.getAttribute('data-url'),
-								 link = (el.hasAttribute('data-url') ? url : window.location.href);
-							  el.setAttribute("href", `https://api.whatsapp.com/send?text=${text}: ${link}`);
-					})
-				}
-				
-				
-				sendViaWhatsapp();
+
       })
       
       $(".chat-box-toggle").click(function() {
         $("#chat-circle").toggle('scale');
         $(".chat-box").toggle('scale');
       })
+
       
     })
 
@@ -310,7 +322,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Create new bucket</h4>
+          <h4 class="modal-title" id="myModalLabel">Create new Project</h4>
         </div>
         <div class="modal-body">
           <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
