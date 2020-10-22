@@ -1,12 +1,9 @@
 const { text } = require('express');
 
 require('dotenv').config();
-
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
-
-function send_whatsapp() {
 
 
   client.messages.create({
@@ -17,7 +14,5 @@ function send_whatsapp() {
     to: 'whatsapp:+56956942823',
     // mediaUrl: './images/andy.png'
   }).then(message => console.log(message.sid));
-}
-
 
 
