@@ -71,21 +71,14 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script src='https://code.responsivevoice.org/responsivevoice.js'></script> -->
     
-  <script src="wp-sendMessage" type="text/javascript">
+  <script src="../wp-sendMessage.js" type="text/javascript">
 
   </script>
-
-
-
-
-</head>
-
-<body>
 
   <script type="text/javascript">
     // Cat box by //https://codepen.io/shivapandey/pen/dWdRYM
       
-  
+
       $(function() {
         var INDEX = 0; 
         $("#chat-submit").click(function(e) {
@@ -110,13 +103,13 @@
           }, 1000)
           send_wp(msg);
         })
-  
+
         function send_wp(msg) {
           console.log(msg)
 
-  
+
         }
-  
+
         function generate_message(msg, type) {
           INDEX++;
           var str="";
@@ -183,18 +176,23 @@
         $("#chat-circle").click(function() {    
           $("#chat-circle").toggle('scale');
           $(".chat-box").toggle('scale');
-  
+
         })
         
         $(".chat-box-toggle").click(function() {
           $("#chat-circle").toggle('scale');
           $(".chat-box").toggle('scale');
         })
-  
+
         
       })
-  
+
   </script>
+
+
+</head>
+
+<body>
 
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -275,9 +273,9 @@
 <!-- ------------------------------------------------------- -->
             <div class="chat-input">    
 
-                <form id="user-input-form">
+                <form>
 
-                  <input type="text" id="chat-input" placeholder="Send a message..."/>
+                  <input type="text" id="chat-input" placeholder="Send a message..." />
                   <button type="submit" class="chat-submit" id="chat-submit">
                     <i class="material-icons">send</i>
                   </button>
