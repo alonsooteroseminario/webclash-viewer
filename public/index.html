@@ -50,7 +50,7 @@
   <script src="/js/TransformationExtension/contents/main.css"></script>
   <script src="/js/CameraRotation/contents/main.js"></script>
   <script src="/js/CameraRotation/contents/main.css"></script>
-  <script src="/js/whatsapp.js"></script>
+
 
 
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/NestedViewerExtension/contents/main.css">
@@ -70,10 +70,11 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script src='https://code.responsivevoice.org/responsivevoice.js'></script> -->
-    <script src="/wp-sendMessage.js"></script>
+    
   
 <script>
   // Cat box by //https://codepen.io/shivapandey/pen/dWdRYM
+    
 
     $(function() {
       var INDEX = 0; 
@@ -97,28 +98,13 @@
         setTimeout(function() {      
           // generate_message(msg, 'user');  
         }, 1000)
-        send_wp();
+        send_wp(msg);
       })
 
-      function send_wp() {
-        const { text } = require('express');
+      function send_wp(msg) {
+        console.log(msg)
+        // send_whatsapp()
 
-        // const authToken = config.credentials.twilio_token;
-        require('dotenv').config();
-        // var taskInput=document.getElementById("chat-input").nodeValue.toLocaleLowerCase();
-
-
-        const accountSid = process.env.ACCOUNT_SID;
-        const authToken = process.env.AUTH_TOKEN;
-        const client = require('twilio')(accountSid, authToken);
-
-        client.messages.create({
-          from: 'whatsapp:+14155238886',
-          //id=chat-input
-        body: $("#chat-input").value,
-          //
-        to: 'whatsapp:+56956942823'
-        }).then(message => console.log(message.sid));
       }
 
       function generate_message(msg, type) {
@@ -264,15 +250,15 @@
         <div id="chat-circle" class="btn btn-raised">
                 <div id="chat-overlay"></div>
                 <i class="material-icons">speaker_phone</i>
-          </div>
-          
+        </div>
+ <!-- ------------------------------------------------------------- -->
           <div class="chat-box">
 
             <div class="chat-box-header">
               Send WhatsApp to:
               <span class="chat-box-toggle"><i class="material-icons">close</i></span>
             </div>
-
+<!-- ------------------------------------------------------------- -->
             <div class="chat-box-body">
 
               <div class="chat-box-overlay">   
@@ -282,17 +268,17 @@
               </div><!--chat-log -->
 
             </div>
-
+<!-- ------------------------------------------------------- -->
             <div class="chat-input">    
 
-              <form>
+                <form id="user-input-form">
 
-              <input type="text" id="chat-input" placeholder="Send a message..."/>
-              <button type="submit" class="chat-submit" id="chat-submit">
-                <i href="https://api.whatsapp.com/send?text=${msg}: ${link}" class="material-icons">send</i>
-              </button>
+                  <input type="text" id="chat-input" placeholder="Send a message..."/>
+                  <button type="submit" class="chat-submit" id="chat-submit">
+                    <i class="material-icons">send</i>
+                  </button>
 
-              </form>   
+                </form>   
 
             </div>
 

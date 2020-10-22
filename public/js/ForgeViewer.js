@@ -1,7 +1,6 @@
 const { AuthClientThreeLegged } = require("forge-apis");
 // import * as THREE from 'three';
 // const scene = new THREE.Scene();
-
 var viewer;
 
 function launchViewer(urn) {
