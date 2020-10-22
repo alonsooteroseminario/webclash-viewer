@@ -3,11 +3,12 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="description" content="Coordinate your job">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Webclash Viewer</title>
   <meta charset="utf-8" />
-
+  <link rel="shortcut icon" href="https://static.wixstatic.com/media/5838f5_91e74a939fa54cfaa24f53a5fa112499%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/5838f5_91e74a939fa54cfaa24f53a5fa112499%7Emv2.png">
   <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" type="text/css">
   <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
 
@@ -257,7 +258,7 @@
           <div class="chat-box">
 
             <div class="chat-box-header">
-              Send WhatsApp to:
+              Whatsapp number
               <span class="chat-box-toggle"><i class="material-icons">close</i></span>
             </div>
 <!-- ------------------------------------------------------------- -->
@@ -324,80 +325,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <!-- <div id="page-wrapper">
-    <h1>Clash Specialists Comment</h1>
-    
-    <div id="status">Connecting...</div>
-    
-    <ul id="messages"></ul>
-    
-    <form id="message-form" action="#" method="post">
-      <textarea id="message" placeholder="Write your message here..." required></textarea>
-      <button type="submit">Send Message</button>
-      <button type="button" id="close">Close Connection</button>
-    </form>
-  </div> -->
-
-      <!-- Developer JS -->
-    <!-- <script>
-
-      function snaphot() {
-          var screenshot = new Image();
-          screenshot.onload = function () {
-              viewer.loadExtension('Autodesk.Viewing.MarkupsCore').then(function (markupCore) {
-                
-                  markupCore.enterEditMode();
-                  var cloud = new Autodesk.Viewing.Extensions.Markups.Core.EditModeCloud(markupCore)
-                  markupCore.changeEditMode(cloud)
-
-                  // markups we just created as a string
-                  var markupsPersist = markupCore.generateData()
-                  // current view state (zoom, direction, sections)
-                  var viewerStatePersist = markupCore.viewer.getState()
-                  // finish edit of markup
-                  markupCore.leaveEditMode()
-                  // hide markups (and restore Viewer tools)
-                  markupCore.hide()
-                  // restore the view to the state where the markups were created
-                  markupCore.viewer.restoreState(viewerStatePersist)      
-
-
-                  // load the markups
-                  markupCore.show();
-                  markupCore.loadMarkups(markupsPersist, "layerName");
-                  
-                  
-
-                  // ideally should also restore state of Viewer for this markup
-
-                  // prepare to render the markups
-                  var canvas = document.getElementById('snapshot');
-                  canvas.width = viewer.container.clientWidth;
-                  canvas.height = viewer.container.clientHeight;
-                  var ctx = canvas.getContext('2d');
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                  ctx.drawImage(screenshot, 0, 0, canvas.width, canvas.height);
-
-                  markupCore.renderToCanvas(ctx);
-
-                  // hide the markups
-                  markupCore.hide();
-              });
-          };
-
-          // Get the full image
-          viewer.getScreenShot(viewer.container.clientWidth, viewer.container.clientHeight, function (blobURL) {
-              screenshot.src = blobURL;
-          });
-      }
-
-      var markupSVG = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" style="position:absolute; left:0; top:0; transform:scale(1,-1); -ms-transform:scale(1,-1); -webkit-transform:scale(1,-1); -moz-transform:scale(1,-1); -o-transform:scale(1,-1); transformOrigin:0, 0; -ms-transformOrigin:0, 0; -webkit-transformOrigin:0, 0; -moz-transformOrigin:0, 0; -o-transformOrigin:0, 0; " width="510" height="960" viewBox="-531.25 -1000 1062.5 2000" cursor="crosshair" pointer-events="painted"><metadata><markup_document xmlns="http://www.w3.org/1999/xhtml" data-model-version="4"></markup_document></metadata><g cursor="inherit" pointer-events="stroke"><metadata><markup_element xmlns="http://www.w3.org/1999/xhtml" stroke-width="10.416666666666629" stroke-linejoin="miter" stroke-color="#ff0000" stroke-opacity="1" fill-color="#ff0000" fill-opacity="0" type="cloud" position="-48.958333333333336 307.2916666666667" size="418.75 377.08333333333337" rotation="0"></markup_element></metadata><path id="markup" d="M -183.75000000000003 -142.59259259259264 a 20.416666666666668 20.37037037037037 0 1 1 20.416666666666668 -20.37037037037037 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 c 2.0416666666666674 -23.819444444444446 38.79166666666668 -23.819444444444446 40.83333333333334 0 a 20.416666666666668 20.37037037037037 0 1 1 20.416666666666668 20.37037037037037 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 c 23.76543209876543 2.037037037037037 23.76543209876543 38.7037037037037 0 40.74074074074074 a 20.416666666666668 20.37037037037037 0 1 1 -20.416666666666668 20.37037037037037 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 c -2.0416666666666674 23.819444444444446 -38.79166666666668 23.819444444444446 -40.83333333333334 0 a 20.416666666666668 20.37037037037037 0 1 1 -20.416666666666668 -20.37037037037037 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 c -23.76543209876543 -2.037037037037037 -23.76543209876543 -38.7037037037037 0 -40.74074074074074 z" stroke-width="10.416666666666629" stroke="rgba(255,0,0,1)" fill="none" transform="translate( -48.958333333333336 , 307.2916666666667 ) rotate( 0 )"/></g></svg>';
-    
-    </script> -->
 
 </body>
 

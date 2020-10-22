@@ -81,7 +81,7 @@ body {
     border-radius: 45px;
     padding-right: 40px;
     padding-left: 40px;
-    color: #5865C3;
+    color:  #1ebea5;
 }
 #chat-overlay {
     background: rgba(255,255,255,0.1);
@@ -113,7 +113,7 @@ body {
   cursor:pointer;
 }
 .chat-box-header {
-  background: #5A5EB9;
+  background:  #1ebea5;
   height:70px;
   border-top-left-radius:5px;
   border-top-right-radius:5px; 
@@ -183,7 +183,7 @@ body {
   box-shadow:none;
   border:none;
   border-radius:50%;
-  color:#5A5EB9;
+  color: #1ebea5;
   width:35px;
   height:35px;  
 }
@@ -204,7 +204,7 @@ body {
 }
 .chat-logs::-webkit-scrollbar-thumb
 {
-	background-color: #5A5EB9;
+	background-color:  #1ebea5;
 }
 @media only screen and (max-width: 500px) {
    .chat-logs {
@@ -242,7 +242,7 @@ body {
 .chat-msg.self > .cm-msg-text {  
   float:right;
   margin-right:10px;
-  background: #5A5EB9;
+  background:  #1ebea5;
   color:white;
 }
 .cm-msg-button>ul>li {
