@@ -13,7 +13,7 @@ function launchViewer(urn) {
 
   Autodesk.Viewing.Initializer(options, () => {
 
-    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.Measure', 'Autodesk.Section','Autodesk.Viewing.Popout', 'Autodesk.ViewerSettings','Autodesk.FullScreen','Autodesk.BimWalk', 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
 
     viewer.start();
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
@@ -56,6 +56,14 @@ function onDocumentLoadSuccess(doc) {
     viewer.loadExtension('CameraRotation')
     viewer.loadExtension('MyAwesomeExtension')
     viewer.loadExtension('wp')
+    viewer.loadExtension('Autodesk.BimWalk')
+    viewer.loadExtension('Autodesk.FullScreen')
+    viewer.loadExtension('Autodesk.ViewerSettings')
+    viewer.loadExtension('Autodesk.Viewing.Popout');
+    viewer.loadExtension('Autodesk.Section')
+    viewer.loadExtension('Autodesk.Measure')
+
+
   });
   
 }
