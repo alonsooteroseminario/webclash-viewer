@@ -10,7 +10,7 @@ if (config.credentials.client_id == null || config.credentials.client_secret == 
 
 let app = express();
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json({ limit: '500mb' }));
+app.use(express.json({ limit: '800mb' }));
 app.use('/api/forge/oauth', require('./routes/oauth'));
 app.use('/api/forge/oss', require('./routes/oss'));
 app.use('/api/forge/modelderivative', require('./routes/modelderivative'));
