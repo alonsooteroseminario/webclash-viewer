@@ -197,13 +197,18 @@
 
   <!-- Fixed navbar by Bootstrap: https://getbootstrap.com/examples/navbar-fixed-top/ -->
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <ul class="nav navbar-nav left">
-        <li>
-          <a>
-            <img class="webaclash-logo-image" src="images/webclash-original.png" width="120px" height="25px">
-          </a>
-        </li>
+    <div class="dropdown">
+
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <a>
+          <img class="webaclash-logo-image" src="images/webclash-original.png" width="120px" height="25px">
+        </a>
+        <span class="caret"></span>
+      </button>
+
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
         <li>
           <a href="https://webclash-bim360.herokuapp.com/">
             <img class="webaclash-logo-image" src="images/bim-360.png" width="150px" height="25px">
