@@ -24,15 +24,19 @@ router.get('/buckets', async (req, res, next) => {
         try {
             // Retrieve buckets from Forge using the [BucketsApi](https://github.com/Autodesk-Forge/forge-api-nodejs-client/blob/master/docs/BucketsApi.md#getBuckets)
             const buckets = await new BucketsApi().getBuckets({ limit: 64 }, req.oauth_client, req.oauth_token);
-            res.json(buckets.body.items.map((bucket) => {
-                return {
-                    id: bucket.bucketKey,
-                    // Remove bucket key prefix that was added during bucket creation
-                    text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
-                    type: 'bucket',
-                    children: true
-                };
-            }));
+            let arrayBuckets = []
+            buckets.body.items.map((bucket) => {
+                if(bucket.bucketKey.toString().includes('weclash', 0)) {
+                    arrayBuckets.push({
+                        id: bucket.bucketKey,
+                        // Remove bucket key prefix that was added during bucket creation
+                        text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
+                        type: 'bucket',
+                        children: true
+                    })
+                }
+            })
+            res.json(arrayBuckets);
         } catch(err) {
             next(err);
         }
