@@ -6,28 +6,11 @@
 
   <meta name="description" content="Coordinate your job">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Webclash Viewer</title>
+  <title>WeClash</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="https://static.wixstatic.com/media/5838f5_7021ebf0c28b4e0a9f562072b4e98d13~mv2.png/v1/fill/w_50,h_50,al_c,lg_1,enc_auto/3d-(1).png">
   <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" type="text/css">
   <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
-
-      <!-- Page styles -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.min.css">
-      <link rel="stylesheet" href="css/styles.css">
-      <style>
-        #view-source {
-          position: fixed;
-          display: block;
-          right: 0;
-          bottom: 0;
-          margin-right: 40px;
-          margin-bottom: 40px;
-          z-index: 900;
-        }
-      </style>
   
   <link rel="shortcut icon" href="/public/images/webclash-original_icon.png">
   <!-- Common packages: jQuery, Bootstrap, jsTree -->
@@ -51,7 +34,7 @@
   <script src="/js/TransformationExtension/contents/main.css"></script>
   <script src="/js/CameraRotation/contents/main.js"></script>
   <script src="/js/CameraRotation/contents/main.css"></script>
-  <script src="js/whatsapp.js"></script>
+  <script src="/js/whatsapp.js"></script>
 
 
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/NestedViewerExtension/contents/main.css">
@@ -73,11 +56,11 @@
 
 
   <!-- End of navbar -->
-  <div class="container-fluid fill">
-    <div class="row fill">
+  <div class="container-fluid">
+    <div class="row">
 
-      <div id="col-sm-4" class="col-sm-4 fill">
-        <div class="panel panel-default fill">
+      <div class="col">
+        <div class="panel panel-default">
           <div class="panel-heading" data-toggle="tooltip">
             Coordination Objects
             <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
@@ -91,7 +74,10 @@
         </div>
       </div>
 
-      <div class="col-sm-8 fill">
+    </div>
+    <div class="row">
+
+      <div class="col">
         <div id="forgeViewer"></div>
       </div>
 
