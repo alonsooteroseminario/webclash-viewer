@@ -6,11 +6,15 @@
   "scripts": {
     "start": "node start.js",
     "dev": "nodemon start.js",
+    "prod": "export NODE_ENV=production && node start.js",
+    "build": "webpack",
+    "build-dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^8.6.0",
     "express": "^4.16.2",
@@ -19,5 +23,19 @@
     "multer": "^1.3.0",
     "three": "^0.121.1",
     "twilio": "^3.30.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   }
 }
