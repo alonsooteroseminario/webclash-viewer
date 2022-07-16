@@ -13,7 +13,19 @@ function launchViewer(urn) {
 
   Autodesk.Viewing.Initializer(options, () => {
 
-    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: [ 'Autodesk.Measure', 'Autodesk.Section','Autodesk.Viewing.Popout', 'Autodesk.ViewerSettings','Autodesk.FullScreen','Autodesk.BimWalk', 'Autodesk.DocumentBrowser', 'HandleSelectionExtension', 'NestedViewerExtension', 'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
+    viewer = new Autodesk.Viewing.GuiViewer3D(
+      document.getElementById('forgeViewer'), 
+      { extensions: [ 
+        'Autodesk.Measure', 
+        'Autodesk.Section',
+        'Autodesk.Viewing.Popout', 
+        'Autodesk.ViewerSettings',
+        'Autodesk.FullScreen',
+        'Autodesk.BimWalk', 
+        'Autodesk.DocumentBrowser', 
+        'HandleSelectionExtension', 
+        'NestedViewerExtension', 
+        'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
 
     viewer.start();
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
@@ -22,7 +34,10 @@ function launchViewer(urn) {
 
     var documentId = 'urn:' + urn;
 
-    Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
+    Autodesk.Viewing.Document.load(
+      documentId, 
+      onDocumentLoadSuccess, 
+      onDocumentLoadFailure);
     
   });
 

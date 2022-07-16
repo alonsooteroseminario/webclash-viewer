@@ -26,15 +26,22 @@ router.get('/buckets', async (req, res, next) => {
             const buckets = await new BucketsApi().getBuckets({ limit: 64 }, req.oauth_client, req.oauth_token);
             let arrayBuckets = []
             buckets.body.items.map((bucket) => {
-                if(bucket.bucketKey.toString().includes('weclash', 0)) {
-                    arrayBuckets.push({
-                        id: bucket.bucketKey,
-                        // Remove bucket key prefix that was added during bucket creation
-                        text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
-                        type: 'bucket',
-                        children: true
-                    })
-                }
+                // if(bucket.bucketKey.toString().includes('weclash', 0)) {
+                //     arrayBuckets.push({
+                //         id: bucket.bucketKey,
+                //         // Remove bucket key prefix that was added during bucket creation
+                //         text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
+                //         type: 'bucket',
+                //         children: true
+                //     })
+                // }
+                arrayBuckets.push({
+                    id: bucket.bucketKey,
+                    // Remove bucket key prefix that was added during bucket creation
+                    text: bucket.bucketKey.replace(config.credentials.client_id.toLowerCase() + '-', ''),
+                    type: 'bucket',
+                    children: true
+                })
             })
             res.json(arrayBuckets);
         } catch(err) {

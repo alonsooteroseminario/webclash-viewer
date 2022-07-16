@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="description" content="Coordinate your job">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>WeClash</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="https://static.wixstatic.com/media/5838f5_7021ebf0c28b4e0a9f562072b4e98d13~mv2.png/v1/fill/w_50,h_50,al_c,lg_1,enc_auto/3d-(1).png">
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
+  
+  <link rel="shortcut icon" href="/public/images/webclash-original_icon.png">
+  <!-- Common packages: jQuery, Bootstrap, jsTree -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/jstree.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/themes/default/style.min.css" />
+
+  <!-- Autodesk Forge Viewer files -->
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
+  <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+  <!-- this project files -->
+  <link href="css/main.css" rel="stylesheet" />
+  <script src="js/ForgeTree.js"></script>
+  <script src="js/ForgeViewer.js"></script>
+  <script src="/js/myawesomeextension.js"></script>
+  <script src="/js/handleselectionextension.js"></script>
+  <script src="/js/ScreenShotManager/contents/main.js"></script>
+  <script src="/js/TransformationExtension/contents/main.js"></script>
+  <script src="/js/TransformationExtension/contents/main.css"></script>
+  <script src="/js/CameraRotation/contents/main.js"></script>
+  <script src="/js/CameraRotation/contents/main.css"></script>
+  <script src="/js/whatsapp.js"></script>
+
+
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/NestedViewerExtension/contents/main.css">
+  <script src="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/NestedViewerExtension/contents/main.js"></script>
+
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/transform/contents/main.css">
+  <script src="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/transform/contents/main.js"></script>
+
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/autodesk-forge/forge-extensions/public/extensions/DrawToolExtension/contents/main.css">
+  <script src="https://github.com/petrbroz/ForgeViewerExtensions/blob/master/assets/js/extensions/TransformTool.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://use.fontawesome.com/1c6f725ec5.js"></script>
+
+
+<script defer src="bundlef887ef48191bbb107e33.js"></script></head>
+
+<body>
+
+
+  <!-- End of navbar -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col">
+        <div class="panel panel-default">
+          <div class="panel-heading" data-toggle="tooltip">
+            Coordination Objects
+            <span id="refreshBuckets" class="glyphicon glyphicon-refresh" style="cursor: pointer"></span>
+            <button class="btn btn-xs btn-info" style="float: right" id="showFormCreateBucket" data-toggle="modal" data-target="#createBucketModal">
+              <span class="glyphicon glyphicon-folder-close"></span> New Project
+            </button>
+          </div>
+          <div id="appBuckets">
+            tree here
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col">
+        <div id="forgeViewer"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <form id="uploadFile" method='post' enctype="multipart/form-data">
+    <input id="hiddenUploadField" type="file" name="theFile" style="visibility:hidden" />
+  </form>
+  <!-- Modal Create Bucket -->
+  <div class="modal fade" id="createBucketModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cancel">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Create new Project</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="newBucketKey" class="form-control"> For demonstration purposes, objects (files) are 
+          NOT automatically translated. After you upload, right click on
+          the object and select "Translate". Bucket keys must be of the form [-_.a-z0-9]{3,128}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="createNewBucket">Go ahead, create the bucket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html> 

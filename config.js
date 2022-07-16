@@ -10,9 +10,9 @@ module.exports = {
     },
     scopes: {
         // Required scopes for the server-side application
-        internal: ['bucket:create', 'bucket:read', 'data:read', 'data:create', 'data:write'],
+        internal: ['bucket:create', 'bucket:read', 'data:read', 'data:create', 'data:write', 'bucket:delete'],
         // Required scope for the client-side viewer
-        public: ['viewables:read']
+        public: ['viewables:read', 'bucket:delete']
     },
 
 };

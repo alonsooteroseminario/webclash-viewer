@@ -66,11 +66,13 @@ function prepareAppBucketTree() {
         "dataType": "json",
         'multiple': false,
         "data": function (node) {
-          if(node.text == 'weclash'){
-            console.log(node.text)
-            let out = { "id": node.id }
-            return out;
-          }
+          // if(node.text == 'weclash'){
+          //   console.log(node.text)
+          //   let out = { "id": node.id }
+          //   return out;
+          // }
+          let out = { "id": node.id }
+          return out;
         }
       }
     },
@@ -128,6 +130,13 @@ function autodeskCustomMenu(autodeskNode) {
             uploadFile();
           },
           icon: 'glyphicon glyphicon-cloud-upload'
+        },
+        deleteBucket: {
+          label: "Delete Bucket",
+          action: function () {
+            deleteBucket();
+          },
+          icon: 'glyphicon glyphicon-cloud-upload'
         }
       };
       break;
@@ -165,4 +174,48 @@ function translateObject(node) {
       $("#forgeViewer").html('Translation started! Please try again in a moment.');
     },
   });
+}
+
+function deleteBucket() {
+  var node = $('#appBuckets').jstree(true).get_selected(true)[0];
+  var bucketKey = node.id;
+  console.log('bucketKey---->',bucketKey)
+
+  getForgeToken(function (access_token) {
+    switch (node.type){
+      case 'bucket':
+        jQuery.ajax({
+          url: "https://developer.api.autodesk.com/oss/v2/buckets/" +
+            encodeURIComponent(bucketKey),
+          type: 'DELETE',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          success: function (res) {
+            $("#forgeViewer").html('Delete Work!');
+          },
+          error: function (err) {
+            console.log(err)
+          }
+        });
+        break
+    }
+  })
+
+  // switch (node.type) {
+  //   case 'bucket':
+  //     $.ajax({
+  //       url: "https://developer.api.autodesk.com/oss/v2/buckets/" +
+  //       encodeURIComponent(bucketKey),
+  //       processData: false,
+  //       contentType: false,
+  //       type: 'DELETE',
+  //       headers: {
+  //         Authorization: "Bearer " + access_token
+  //       },
+  //       success: function (data) {
+  //         $("#forgeViewer").html('Delete Work!');
+  //       }
+  //     });
+
+  //     break;
+  // }
 }
