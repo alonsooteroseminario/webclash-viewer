@@ -14,18 +14,7 @@ function launchViewer(urn) {
   Autodesk.Viewing.Initializer(options, () => {
 
     viewer = new Autodesk.Viewing.GuiViewer3D(
-      document.getElementById('forgeViewer'), 
-      { extensions: [ 
-        'Autodesk.Measure', 
-        'Autodesk.Section',
-        'Autodesk.Viewing.Popout', 
-        'Autodesk.ViewerSettings',
-        'Autodesk.FullScreen',
-        'Autodesk.BimWalk', 
-        'Autodesk.DocumentBrowser', 
-        'HandleSelectionExtension', 
-        'NestedViewerExtension', 
-        'Autodesk.Edit2D', 'Autodesk.ADN.Viewing.Extension.TransformTool', 'wp', 'MyAwesomeExtension', 'CameraRotation'] });
+      document.getElementById('forgeViewer'));
 
     viewer.start();
     viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, function () {
@@ -40,15 +29,12 @@ function launchViewer(urn) {
       onDocumentLoadFailure);
     
   });
-
-
-
-
 }
 
 var $container = $(viewer.container);
 
 Autodesk.Viewing.Viewer3D.prototype.getScreenShot = function(w, h, cb) {
+  
 }
 
 viewer.getScreenShot(
@@ -63,21 +49,6 @@ viewer.getScreenShot(
 function onDocumentLoadSuccess(doc) {
   var viewables = doc.getRoot().getDefaultGeometry();
   viewer.loadDocumentNode(doc, viewables).then(i => {
-    // documented loaded, any action?
-    viewer.loadExtension("NestedViewerExtension",  { filter: ["2d", "3d"], crossSelection: true })
-    viewer.loadExtension("Autodesk.ADN.Viewing.Extension.TransformTool")
-    viewer.loadExtension("Autodesk.Edit2D")
-    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.ScreenShotManager',{createControls: true})
-    viewer.loadExtension('CameraRotation')
-    viewer.loadExtension('MyAwesomeExtension')
-    viewer.loadExtension('wp')
-    viewer.loadExtension('Autodesk.BimWalk')
-    viewer.loadExtension('Autodesk.FullScreen')
-    viewer.loadExtension('Autodesk.ViewerSettings')
-    viewer.loadExtension('Autodesk.Viewing.Popout');
-    viewer.loadExtension('Autodesk.Section')
-    viewer.loadExtension('Autodesk.Measure')
-
 
   });
   
